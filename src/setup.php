@@ -5,10 +5,12 @@ require_once 'Database.php';
 try {
     $pdo = Database::connect();
 
+    $pdo->exec("DROP TABLE IF EXISTS pizzas");
+
     $sql = "CREATE TABLE IF NOT EXISTS pizzas (
         id SERIAL PRIMARY KEY,
-        nome VARCHAR(255) NOT NULL,
-        preco DECIMAL(10, 2) NOT NULL
+        flavor VARCHAR(255) NOT NULL,
+        price DECIMAL(10, 2) NOT NULL
     )";
 
     $pdo->exec($sql);
