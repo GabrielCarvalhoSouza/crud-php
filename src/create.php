@@ -7,10 +7,10 @@ function createPizza(){
         return;
     }
 
-    $pizza_flavor = $_POST['pizza_flavor'];
-    $pizza_price = $_POST['pizza_price'];
+    $pizzaFlavor = $_POST['pizza_flavor'];
+    $pizzaPrice = $_POST['pizza_price'];
 
-    if (empty(trim($pizza_flavor)) || !is_numeric($pizza_price)){
+    if (empty(trim($pizzaFlavor)) || !is_numeric($pizzaPrice)){
         echo "Erro: Dados inválidos, tente novamente.";
         return;
     }
@@ -20,7 +20,7 @@ function createPizza(){
 
         $sql = "INSERT INTO pizzas (flavor, price) VALUES (?, ?);";
         $stmt = $pdo->prepare($sql);
-        $stmt->execute([$pizzaFlavor, $pizza_price]);
+        $stmt->execute([$pizzaFlavor, $pizzaPrice]);
 
         echo "Pizza cadastrada.";
 
@@ -43,7 +43,7 @@ createPizza();
 <body>
     <h1>Cadastro de Pizza</h1>
 
-    <a href="index.php">Mostrar cadastro</a>
+    <a href="index.php">Mostrar cardápio</a>
 
     <form action="" method="POST">
         <label for="pizza_flavor">Sabor</label>
