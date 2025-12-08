@@ -47,7 +47,7 @@ try {
                 <th>ID</th>
                 <th>Sabor</th>
                 <th>Preço</th>
-                <th>Excluir</th>
+                <th>Ações</th>
             </tr>
         </thead>
         <tbody>
@@ -58,12 +58,10 @@ try {
                     <td> R$ <?php echo $pizza['price']; ?> </td>
                     <td>
                         <a href="delete.php?id=<?php echo $pizza['id']; ?>">Excluir</a>
-                    </td>
-                    <td>
                         <a href="update.php?id=<?php echo $pizza['id']; ?>">Atualizar</a>
                     </td>
                 </tr>
-            <?php endforeach; ?>
+            <?php endforeach; ?> 
             
             <?php if (empty($result)): ?>
                 <tr>
