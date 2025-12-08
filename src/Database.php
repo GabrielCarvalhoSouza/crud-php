@@ -9,16 +9,12 @@ class Database {
         $port = getenv('POSTGRES_PORT');
         
         $dsn = "pgsql:host=$host;port=$port;dbname=$db";
-        
-        try {
-            $pdo = new PDO($dsn, $user, $pass, [
-                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
-            ]);
 
-            return $pdo;
-        } catch (PDOException $e){
-            die("Erro de conexão: " . $e->getMessage());
-        }
+        $pdo = new PDO($dsn, $user, $pass, [
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+        ]);
+
+        return $pdo;
     }
 }

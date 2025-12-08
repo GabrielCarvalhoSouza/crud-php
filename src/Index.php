@@ -1,8 +1,7 @@
 <?php
+session_start();
 
 require_once 'Database.php';
-
-echo "<h1>Teste de Conexão</h1>";
 
 try {
     $pdo = Database::connect();
@@ -23,9 +22,24 @@ try {
     <title>Menu de Pizzaria</title>
 </head>
 <body>
-    <h1>Cardápio da Pizzaria</h1>
+    <header>
+        <h1>Cardápio da Pizzaria</h1>
+        <nav>
+            <a href="create.php">Cadastre uma pizza</a>
+        </nav>
+    </header>
 
-    <a href="create.php">Cadastre uma pizza</a>
+    <div class="flash-message" id="flash-message">
+        <?php
+            if (isset($_SESSION['flash_message'])):
+                $msg = $_SESSION['flash_message']['msg'];
+                $type = $_SESSION['flash_message']['type'];
+        ?>
+        <span> <?php echo $type . ": " . $msg; ?> </span>
+        <?php unset($_SESSION['flash_message']); ?>
+        <button id="btn--closeflash-message">X</button>
+        <?php endif; ?>
+    </div>
 
     <table>
         <thead>
@@ -56,6 +70,26 @@ try {
         </tbody>
     </table>
     
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const flashMessageBox = document.getElementById("flash-message");
+            const closeFlashMessageBoxButton = document.getElementById("btn--closeflash-message");
+            if (!flashMessageBox || !closeFlashMessageBoxButton) {
+                return;
+            }
+            
+            const removeFlashMessage = () => {
+                flashMessageBox.remove();
+            }
+    
+            let timeout = setTimeout(removeFlashMessage, 3000);
+            closeFlashMessageBoxButton.onclick = () => {
+                clearTimeout(timeout);
+                removeFlashMessage();
+            }
+        });
+
+    </script>
     
 </body>
 </html>

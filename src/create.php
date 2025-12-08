@@ -1,18 +1,21 @@
 <?php
+session_start();
 
 require_once 'Database.php';
 
 function createPizza(){
     if ($_SERVER['REQUEST_METHOD'] != 'POST') {
-        return;
+        return null;
     }
 
     $pizzaFlavor = $_POST['pizza_flavor'];
     $pizzaPrice = $_POST['pizza_price'];
 
     if (empty(trim($pizzaFlavor)) || !is_numeric($pizzaPrice)){
-        echo "Erro: Dados inválidos, tente novamente.";
-        return;
+        return [
+            'msg' => 'Dados inválidos, verifique e tente novamente.',
+            'type' => 'error'
+        ];
     }
 
     try {
@@ -22,15 +25,25 @@ function createPizza(){
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$pizzaFlavor, $pizzaPrice]);
 
-        echo "Pizza cadastrada.";
+        return [
+            'msg' => 'Pizza cadastrada com sucesso.',
+            'type' => 'success'
+        ];
 
     } catch (PDOException $e) {
-        die("Erro de conexão: " . $e->getMessage());
+        return [
+            'msg' => 'Erro de conexão, tente novamente.',
+            'type' => 'error'
+        ];
     }
 }
 
-createPizza();
-
+$result = createPizza();
+if ($result){
+    $_SESSION['flash_message'] = $result;
+    header('Location: index.php');
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
