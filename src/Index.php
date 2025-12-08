@@ -59,6 +59,9 @@ try {
                     <td>
                         <a href="delete.php?id=<?php echo $pizza['id']; ?>">Excluir</a>
                     </td>
+                    <td>
+                        <a href="update.php?id=<?php echo $pizza['id']; ?>">Atualizar</a>
+                    </td>
                 </tr>
             <?php endforeach; ?>
             
@@ -77,7 +80,7 @@ try {
             if (!flashMessageBox || !closeFlashMessageBoxButton) {
                 return;
             }
-            
+
             const removeFlashMessage = () => {
                 flashMessageBox.remove();
             }
