@@ -23,59 +23,59 @@ try {
     <title>Menu de Pizzaria</title>
 </head>
 <body>
-    <header>
-        <h1>Cardápio da Pizzaria</h1>
-        <nav>
-            <a href="create.php">Cadastre uma pizza</a>
-        </nav>
-    </header>
-    <main>
-        <?php
-            if (isset($_SESSION['flash_message'])):
-                $msg = $_SESSION['flash_message']['msg'];
-                $type = $_SESSION['flash_message']['type'];
-                $role = ($type === 'error') ? 'alert' : 'status';
-        ?>
-        <div class="flash-message" id="flash-message" role="<?php echo $role ?>">
-            <span> <?php echo $type . ": " . $msg; ?> </span>
-            <?php unset($_SESSION['flash_message']); ?>
-            <button id="btn--closeflash-message">X</button>
-        </div>
-        <?php endif; ?>
-    
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Sabor</th>
-                    <th>Preço</th>
-                    <th>Ações</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($result as $pizza): ?>
-                    <tr>
-                        <td> <?php echo $pizza['id']; ?> </td>
-                        <td> <?php echo htmlspecialchars($pizza['flavor'], ENT_QUOTES, 'UTF-8'); ?> </td>
-                        <td> R$ <?php echo htmlspecialchars($pizza['price'], ENT_QUOTES, 'UTF-8'); ?> </td>
-                        <td>
-                            <form action="delete.php" method="post">
-                                <input type="hidden" name="id" value="<?php echo $pizza['id']; ?>">
-                                <button type="submit">Excluir</button>
-                            </form>
-                            <a href="update.php?id=<?php echo $pizza['id']; ?>">Atualizar</a>
-                        </td>
-                    </tr>
-                <?php endforeach; ?> 
-                
-                <?php if (empty($result)): ?>
-                    <tr>
-                        <td colspan="4" style="text-align: center;">Nenhuma pizza cadastrada ainda.</td>
-                    </tr>
+        <header>
+            <h1>Cardápio da Pizzaria</h1>
+            <nav>
+                <a href="create.php">Cadastre uma pizza</a>
+            </nav>
+        </header>
+        <main>
+            <div class="item">
+                <?php
+                    if (isset($_SESSION['flash_message'])):
+                        $msg = $_SESSION['flash_message']['msg'];
+                        $type = $_SESSION['flash_message']['type'];
+                        $role = ($type === 'error') ? 'alert' : 'status';
+                ?>
+                <div class="flash-message" id="flash-message" role="<?php echo $role ?>">
+                    <span> <?php echo $type . ": " . $msg; ?> </span>
+                    <?php unset($_SESSION['flash_message']); ?>
+                    <button id="btn--closeflash-message">X</button>
+                </div>
                 <?php endif; ?>
-            </tbody>
-        </table>
-    </main>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Sabor</th>
+                            <th>Preço</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($result as $pizza): ?>
+                            <tr>
+                                <td> <?php echo $pizza['id']; ?> </td>
+                                <td> <?php echo htmlspecialchars($pizza['flavor'], ENT_QUOTES, 'UTF-8'); ?> </td>
+                                <td> R$ <?php echo htmlspecialchars($pizza['price'], ENT_QUOTES, 'UTF-8'); ?> </td>
+                                <td>
+                                    <form action="delete.php" method="post">
+                                        <input type="hidden" name="id" value="<?php echo $pizza['id']; ?>">
+                                        <button type="submit">Excluir</button>
+                                    </form>
+                                    <a href="update.php?id=<?php echo $pizza['id']; ?>">Atualizar</a>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                        <?php if (empty($result)): ?>
+                            <tr>
+                                <td colspan="4" style="text-align: center;">Nenhuma pizza cadastrada ainda.</td>
+                            </tr>
+                        <?php endif; ?>
+                    </tbody>
+                </table>
+            </div>
+        </main>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const flashMessageBox = document.getElementById("flash-message");

@@ -62,16 +62,16 @@ if ($result){
         </nav>
     </header>
     <main>
-        <form action="" method="POST" autocomplete="off">
-            <label for="pizza_flavor">Sabor</label>
-            <input type="text" id="pizza_flavor" name="pizza_flavor" required>
-    
-            <label for="pizza_price">Preço</label>
-            <input type="number" id="pizza_price" name="pizza_price" step="0.01" required>
-    
-            <button type="submit">Cadastrar</button>
-            <button type="reset">Limpar</button>
-        </form>
+        <div class="item">
+            <form action="" method="POST" autocomplete="off">
+                <label for="pizza_flavor">Sabor</label>
+                <input type="text" id="pizza_flavor" name="pizza_flavor" required>
+                <label for="pizza_price">Preço</label>
+                <input type="number" id="pizza_price" name="pizza_price" step="0.01" required>
+                <button type="submit">Cadastrar</button>
+                <button type="reset">Limpar</button>
+            </form>
+        </div>
     </main>
 </body>
 </html>
