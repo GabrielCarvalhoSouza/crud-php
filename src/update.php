@@ -41,9 +41,9 @@ function checkIfPizzaExists() {
 function updatePizza(){
     $pizzaFlavor = $_POST['pizza_flavor'];
     $pizzaPrice = $_POST['pizza_price'];
-    $pizzaId = $_GET['id'];
+    $pizzaId = $_POST['id'];
 
-    if (empty(trim($pizzaFlavor)) || !is_numeric($pizzaPrice) || !is_numeric($_GET['id'])){
+    if (empty(trim($pizzaFlavor)) || !is_numeric($pizzaPrice) || !is_numeric($_POST['id'])){
         return [
             'msg' => 'Dados inválidos, verifique e tente novamente.',
             'type' => 'error'
@@ -95,21 +95,29 @@ $pizza = $result;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style.css">
     <title>Atualizando a Pizza</title>
 </head>
 <body>
-    <h1>Atualizando a Pizza</h1>
+    <header>
+        <h1>Atualizando a Pizza</h1>
+        <nav>
+            <a href="index.php">Mostrar cardápio</a>
+        </nav>
+    </header>
+    <main>
+        <form action="" method="POST" autocomplete="off">
+            <input type="hidden" name="id" value="<?php echo $pizza['id']; ?>">
 
-    <a href="index.php">Mostrar cardápio</a>
-
-    <form action="" method="POST">
-        <label for="pizza_flavor">Sabor</label>
-        <input type="text" id="pizza_flavor" name="pizza_flavor" value="<?php echo $pizza['flavor']; ?>" required>
-
-        <label for="pizza_price">Preço</label>
-        <input type="number" id="pizza_price" name="pizza_price" step="0.01" value="<?php echo $pizza['price']; ?>" required>
-
-        <button type="submit">Salvar Atualizações</button>
-    </form>
+            <label for="pizza_flavor">Sabor</label>
+            <input type="text" id="pizza_flavor" name="pizza_flavor" value="<?php echo htmlspecialchars($pizza['flavor'], ENT_QUOTES, 'UTF-8'); ?>" required>
+            
+            <label for="pizza_price">Preço</label>
+            <input type="number" id="pizza_price" name="pizza_price" step="0.01" value="<?php echo htmlspecialchars($pizza['price'], ENT_QUOTES, 'UTF-8'); ?>" required>
+           
+            <button type="submit">Salvar</button>
+            <button type="reset">Desfazer</button>
+        </form>
+    </main>
 </body>
 </html>

@@ -51,21 +51,27 @@ if ($result){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style.css">
     <title>Cadastro de Pizza</title>
 </head>
 <body>
-    <h1>Cadastro de Pizza</h1>
-
-    <a href="index.php">Mostrar cardápio</a>
-
-    <form action="" method="POST">
-        <label for="pizza_flavor">Sabor</label>
-        <input type="text" id="pizza_flavor" name="pizza_flavor" required>
-
-        <label for="pizza_price">Preço</label>
-        <input type="number" id="pizza_price" name="pizza_price" step="0.01" required>
-
-        <button type="submit">Cadastrar</button>
-    </form>
+    <header>
+        <h1>Cadastro de Pizza</h1>
+        <nav>
+            <a href="index.php">Mostrar cardápio</a>
+        </nav>
+    </header>
+    <main>
+        <form action="" method="POST" autocomplete="off">
+            <label for="pizza_flavor">Sabor</label>
+            <input type="text" id="pizza_flavor" name="pizza_flavor" required>
+    
+            <label for="pizza_price">Preço</label>
+            <input type="number" id="pizza_price" name="pizza_price" step="0.01" required>
+    
+            <button type="submit">Cadastrar</button>
+            <button type="reset">Limpar</button>
+        </form>
+    </main>
 </body>
 </html>
