@@ -15,6 +15,9 @@
 
   --color-success: #04d361;
   --color-error: #f75a68;
+  --color-warning: #f59e0b;
+  --color-warning-hover: #d97706;
+  --text-on-warning: #09090b;
 
   --color-border: #27272a;
   --color-table-stripe: #18181b;
@@ -89,7 +92,16 @@ main {
 
 table {
   width: 100%;
-  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+tr:nth-child(even) {
+  background-color: var(--color-table-stripe);
+}
+
+tr:hover {
+  background-color: rgba(0, 0, 0, 0.25);
+  cursor: pointer;
 }
 
 th,
@@ -106,11 +118,91 @@ th {
   font-size: 0.9em;
 }
 
-tr:nth-child(even) {
-  background-color: var(--color-table-stripe);
+th:nth-child(1) {
+  width: 10%;
+  text-align: center;
 }
 
-tr:hover {
-  background-color: rgba(0, 0, 0, 0.25);
+th:nth-child(2) {
+  width: 50%;
+}
+
+th:nth-child(3) {
+  width: 20%;
+  text-align: right;
+}
+
+th:nth-child(4) {
+  width: 20%;
+  text-align: center;
+}
+
+td:nth-child(1) {
+  text-align: center;
+}
+
+td:nth-child(3) {
+  text-align: right;
+}
+
+th:first-child {
+  border-top-left-radius: 8px;
+}
+
+th:last-child {
+  border-top-right-radius: 8px;
+}
+
+tr:last-child td:first-child {
+  border-bottom-left-radius: 8px;
+}
+
+tr:last-child td:last-child {
+  border-bottom-right-radius: 8px;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+td:last-child {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.btn {
+  text-decoration: none;
+  border: none;
+  padding: 8px;
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+  min-width: 80px;
+  font-weight: bold;
+}
+
+.btn-update {
+  color: var(--text-on-warning);
+  background-color: var(--color-warning);
+  transition: background-color 0.2s;
+}
+
+.btn-update:hover {
+  color: var(--text-on-warning);
+  background-color: var(--color-warning-hover);
+}
+
+.btn-delete {
+  color: var(--text-primary);
+  background-color: var(--color-error);
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.btn-delete:hover {
+  color: var(--text-on-primary);
+  background-color: var(--color-error);
 }

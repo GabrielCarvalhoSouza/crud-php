@@ -20,7 +20,7 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/style.css">
-    <title>Menu de Pizzaria</title>
+    <title>Cardápio da Pizzaria</title>
 </head>
 <body>
         <header>
@@ -43,37 +43,39 @@ try {
                     <button id="btn--closeflash-message">X</button>
                 </div>
                 <?php endif; ?>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Sabor</th>
-                            <th>Preço</th>
-                            <th>Ações</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($result as $pizza): ?>
+                <div class="table-container">
+                    <table>
+                        <thead>
                             <tr>
-                                <td> <?php echo $pizza['id']; ?> </td>
-                                <td> <?php echo htmlspecialchars($pizza['flavor'], ENT_QUOTES, 'UTF-8'); ?> </td>
-                                <td> R$ <?php echo htmlspecialchars($pizza['price'], ENT_QUOTES, 'UTF-8'); ?> </td>
-                                <td>
-                                    <form action="delete.php" method="post">
-                                        <input type="hidden" name="id" value="<?php echo $pizza['id']; ?>">
-                                        <button type="submit">Excluir</button>
-                                    </form>
-                                    <a href="update.php?id=<?php echo $pizza['id']; ?>">Atualizar</a>
-                                </td>
+                                <th>ID</th>
+                                <th>Sabor</th>
+                                <th>Preço</th>
+                                <th>Ações</th>
                             </tr>
-                        <?php endforeach; ?>
-                        <?php if (empty($result)): ?>
-                            <tr>
-                                <td colspan="4" style="text-align: center;">Nenhuma pizza cadastrada ainda.</td>
-                            </tr>
-                        <?php endif; ?>
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($result as $pizza): ?>
+                                <tr>
+                                    <td> <?php echo $pizza['id']; ?> </td>
+                                    <td> <?php echo htmlspecialchars($pizza['flavor'], ENT_QUOTES, 'UTF-8'); ?> </td>
+                                    <td> R$ <?php echo htmlspecialchars($pizza['price'], ENT_QUOTES, 'UTF-8'); ?> </td>
+                                    <td>
+                                        <a class="btn btn-update" href="update.php?id=<?php echo $pizza['id']; ?>">Atualizar</a>
+                                        <form action="delete.php" method="post">
+                                            <input type="hidden" name="id" value="<?php echo $pizza['id']; ?>">
+                                            <button class="btn btn-delete" type="submit">Excluir</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                            <?php if (empty($result)): ?>
+                                <tr>
+                                    <td colspan="4" style="text-align: center;">Nenhuma pizza cadastrada ainda.</td>
+                                </tr>
+                            <?php endif; ?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </main>
     <script>
