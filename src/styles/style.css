@@ -30,17 +30,22 @@ body {
 
 header {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding: 15px 20px;
   background-color: var(--bg-surface);
   border-bottom: 1px solid var(--color-border);
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
 }
 
 header h1 {
   color: var(--text-primary);
   font-size: 1.8em;
-  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
 }
 
 header nav {
@@ -51,6 +56,8 @@ header nav a {
   text-decoration: none;
   font-size: 0.9em;
   padding: 6px;
+  min-width: 140px;
+  text-align: center;
   border-radius: 5px;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
   color: var(--text-primary);
@@ -64,13 +71,15 @@ header nav a:hover {
 
 main {
   display: grid;
-  grid-template-columns: 1fr 85vw 1fr;
+  grid-template-columns: 1fr 90vw 1fr;
 }
 
 .item {
   grid-column: 2;
   background-color: var(--bg-surface);
-  padding: 10px;
-  border-radius: 0px 0px 10px 10px;
+  padding: 15px;
+  margin-top: 20px;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
   box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
 }
