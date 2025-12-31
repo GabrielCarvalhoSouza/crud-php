@@ -30,7 +30,7 @@ try {
             </nav>
         </header>
         <main>
-            <div class="item">
+            <div class="card">
                 <?php
                     if (isset($_SESSION['flash_message'])):
                         $msg = $_SESSION['flash_message']['msg'];

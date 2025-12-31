@@ -106,7 +106,7 @@ $pizza = $result;
         </nav>
     </header>
     <main>
-        <div class="item">
+        <div class="card">
             <form action="" method="POST" autocomplete="off">
                 <input type="hidden" name="id" value="<?php echo $pizza['id']; ?>">
                 <label for="pizza_flavor">Sabor</label>

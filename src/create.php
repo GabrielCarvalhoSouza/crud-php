@@ -62,7 +62,7 @@ if ($result){
         </nav>
     </header>
     <main>
-        <div class="item">
+        <div class="card">
             <form action="" method="POST" autocomplete="off">
                 <label for="pizza_flavor">Sabor</label>
                 <input type="text" id="pizza_flavor" name="pizza_flavor" required>
