@@ -15,9 +15,6 @@
 
   --color-success: #04d361;
   --color-error: #f75a68;
-  --color-warning: #f59e0b;
-  --color-warning-hover: #d97706;
-  --text-on-warning: #09090b;
 
   --color-border: #27272a;
   --color-table-stripe: #18181b;
@@ -49,7 +46,7 @@ header {
 
 header h1 {
   color: var(--text-primary);
-  font-size: 1.8em;
+  font-size: 1.8rem;
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
 }
 
@@ -59,15 +56,16 @@ header nav {
 
 header nav a {
   text-decoration: none;
-  font-size: 0.9em;
-  padding: 6px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  padding: 8px 16px;
   min-width: 140px;
   text-align: center;
-  border-radius: 5px;
-  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+  border-radius: 7px;
+  box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.4);
   color: var(--text-primary);
   background-color: var(--color-primary);
-  transition: color 0.2s, background-color 0.2s;
+  transition: all 0.25s;
 }
 
 header nav a:hover {
@@ -115,7 +113,8 @@ th {
   color: var(--text-secondary);
   font-weight: bold;
   text-transform: uppercase;
-  font-size: 0.9em;
+  letter-spacing: 0.05em;
+  font-size: 0.9rem;
 }
 
 th:nth-child(1) {
@@ -172,34 +171,40 @@ td:last-child {
 }
 
 .btn {
-  text-decoration: none;
-  border: none;
-  padding: 8px;
-  cursor: pointer;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 5px;
-  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+  text-decoration: none;
+  padding: 0px 8px;
   min-width: 80px;
+  height: 36px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+  background-color: transparent;
+  transition: all 0.25s;
   font-weight: bold;
+  font-family: inherit;
+  font-size: 0.9rem;
+  line-height: 1;
+  margin: 0;
 }
 
 .btn-update {
-  color: var(--text-on-warning);
-  background-color: var(--color-warning);
-  transition: background-color 0.2s;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
 }
 
 .btn-update:hover {
-  color: var(--text-on-warning);
-  background-color: var(--color-warning-hover);
+  color: var(--text-on-primary);
+  background-color: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
 }
 
 .btn-delete {
-  color: var(--text-primary);
-  background-color: var(--color-error);
-  transition: color 0.2s, background-color 0.2s;
+  color: var(--color-error);
+  border-color: var(--color-error);
 }
 
 .btn-delete:hover {
