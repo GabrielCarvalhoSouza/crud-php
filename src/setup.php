@@ -15,7 +15,8 @@ try {
 
     $pdo->exec($sql);
 
-    echo "Tabela criada com sucesso (ou já foi criada anteriormente)";
+    echo "Tabela criada (ou resetada) com sucesso!";
+    echo "<br><a href=\"index.php\">Ir para o cardápio</a>";
 
 } catch (PDOException $e) {
     die("Erro de conexão: " . $e->getMessage());

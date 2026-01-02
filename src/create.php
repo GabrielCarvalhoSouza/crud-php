@@ -13,7 +13,7 @@ function createPizza(){
 
     if (empty(trim($pizzaFlavor)) || !is_numeric($pizzaPrice)){
         return [
-            'msg' => 'Dados inválidos, verifique e tente novamente.',
+            'msg' => 'Dados inválidos, verifique e tente novamente',
             'type' => 'error'
         ];
     }
@@ -26,13 +26,13 @@ function createPizza(){
         $stmt->execute([$pizzaFlavor, $pizzaPrice]);
 
         return [
-            'msg' => 'Pizza cadastrada com sucesso.',
+            'msg' => 'Pizza cadastrada com sucesso',
             'type' => 'success'
         ];
 
     } catch (PDOException $e) {
         return [
-            'msg' => 'Erro de conexão, tente novamente.',
+            'msg' => 'Erro de conexão, tente novamente',
             'type' => 'error'
         ];
     }

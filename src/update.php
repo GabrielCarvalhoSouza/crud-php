@@ -6,7 +6,7 @@ require_once 'Database.php';
 function checkIfPizzaExists() {
     if (!isset($_GET['id']) || !is_numeric($_GET['id'])){
         return [
-            'msg' => 'Id inválido, tente novamente.',
+            'msg' => 'Id inválido, tente novamente',
             'type'=> 'error'
         ];
     }
@@ -22,7 +22,7 @@ function checkIfPizzaExists() {
 
         if (!$result) {
             return [
-                'msg' => 'Pizza não encontrada. Ela já foi comida ou nunca existiu',
+                'msg' => 'Pizza não encontrada',
                 'type' => 'error'
             ];
         }
@@ -30,7 +30,7 @@ function checkIfPizzaExists() {
 
     } catch (PDOException $e) {
         return [
-            'msg' => 'Erro de conexão, tente novamente.',
+            'msg' => 'Erro de conexão, tente novamente',
             'type' => 'error'
         ];
     }
@@ -45,7 +45,7 @@ function updatePizza(){
 
     if (empty(trim($pizzaFlavor)) || !is_numeric($pizzaPrice) || !is_numeric($_POST['id'])){
         return [
-            'msg' => 'Dados inválidos, verifique e tente novamente.',
+            'msg' => 'Dados inválidos, verifique e tente novamente',
             'type' => 'error'
         ];
     }
@@ -58,13 +58,13 @@ function updatePizza(){
         $stmt->execute([$pizzaFlavor, $pizzaPrice, $pizzaId]);
 
         return [
-            'msg' => 'Pizza atualizada com sucesso.',
+            'msg' => 'Pizza atualizada com sucesso',
             'type' => 'success'
         ];
 
     } catch (PDOException $e) {
         return [
-            'msg' => 'Erro de conexão, tente novamente.',
+            'msg' => 'Erro de conexão, tente novamente',
             'type' => 'error'
         ];
     }

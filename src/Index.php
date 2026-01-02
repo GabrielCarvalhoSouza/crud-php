@@ -37,10 +37,10 @@ try {
                         $type = $_SESSION['flash_message']['type'];
                         $role = ($type === 'error') ? 'alert' : 'status';
                 ?>
-                <div class="flash-message" id="flash-message" role="<?php echo $role ?>">
-                    <span> <?php echo $type . ": " . $msg; ?> </span>
+                <div class="flash-message <?php echo $type ?>" id="flash-message" role="<?php echo $role ?>">
+                    <span> <?php echo $msg; ?> </span>
                     <?php unset($_SESSION['flash_message']); ?>
-                    <button id="btn--closeflash-message">X</button>
+                    <button id="btn-close-flash-message">X</button>
                 </div>
                 <?php endif; ?>
                 <?php if (empty($result)): ?>
@@ -83,7 +83,7 @@ try {
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const flashMessageBox = document.getElementById("flash-message");
-            const closeFlashMessageBoxButton = document.getElementById("btn--closeflash-message");
+            const closeFlashMessageBoxButton = document.getElementById("btn-close-flash-message");
             if (!flashMessageBox || !closeFlashMessageBoxButton) {
                 return;
             }
@@ -92,7 +92,7 @@ try {
                 flashMessageBox.remove();
             }
     
-            let timeout = setTimeout(removeFlashMessage, 3000);
+            let timeout = setTimeout(removeFlashMessage, 4000);
             closeFlashMessageBoxButton.onclick = () => {
                 clearTimeout(timeout);
                 removeFlashMessage();

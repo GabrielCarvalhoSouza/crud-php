@@ -6,14 +6,14 @@ require_once 'Database.php';
 function deletePizza(){
     if ($_SERVER['REQUEST_METHOD'] != 'POST') {
         return [
-            'msg' => 'Requisição inválida, tente novamente.',
+            'msg' => 'Requisição inválida, tente novamente',
             'type' => 'error'
         ];
     }
 
     if (!isset($_POST['id']) || !is_numeric($_POST['id'])){
         return [
-            'msg' => 'Id inválido, tente novamente.',
+            'msg' => 'Id inválido, tente novamente',
             'type'=> 'error'
         ];
     }
@@ -27,12 +27,12 @@ function deletePizza(){
         $stmt->execute([$pizzaId]);
 
         return [
-            'msg' => 'Pizza excluida com sucesso.',
+            'msg' => 'Pizza excluida com sucesso',
             'type' => 'success'
         ];
     } catch (PDOException $e) {
         return [
-            'msg' => 'Erro de conexão, tente novamente.',
+            'msg' => 'Erro de conexão, tente novamente',
             'type' => 'error'
         ];
     }

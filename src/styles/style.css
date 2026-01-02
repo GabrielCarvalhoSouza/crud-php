@@ -236,6 +236,7 @@ td:last-child {
   border-radius: 10px;
   border: 1px solid var(--color-border);
   background-color: var(--color-input-bg);
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
   color: var(--text-primary);
   font-size: 0.9rem;
   transition: all 0.25s;
@@ -255,6 +256,7 @@ label {
   cursor: pointer;
   font-size: 0.9rem;
   font-weight: 500;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
 }
 
 input[type="number"]::-webkit-outer-spin-button,
@@ -266,4 +268,71 @@ input[type="number"]::-webkit-inner-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
   appearance: textfield;
+}
+
+.flash-message {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 16px;
+  position: fixed;
+  bottom: 35px;
+  right: 30px;
+  z-index: 2;
+  padding: 15px 15px 15px 45px;
+  color: var(--text-primary);
+  background-color: var(--bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  animation: slideIn 0.4s ease-out forwards;
+}
+
+.flash-message::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 30px;
+}
+
+.flash-message.success::before {
+  background-color: var(--color-success);
+}
+
+.flash-message.error::before {
+  background-color: var(--color-error);
+}
+
+.flash-message button {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 1px 5px;
+  transition: color 0.2s;
+  line-height: 1;
+}
+
+.flash-message button:hover {
+  color: var(--text-primary);
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+  75% {
+    transform: translateX(-7%);
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
