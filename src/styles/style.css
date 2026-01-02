@@ -194,23 +194,44 @@ td:last-child {
   margin: 0;
 }
 
-.btn-update {
+.btn-primary {
   color: var(--color-primary);
   border-color: var(--color-primary);
 }
 
-.btn-update:hover {
+.btn-primary:hover {
   color: var(--text-on-primary);
   background-color: var(--color-primary-hover);
   border-color: var(--color-primary-hover);
 }
 
-.btn-delete {
+.btn-danger {
   color: var(--color-error);
   border-color: var(--color-error);
 }
 
-.btn-delete:hover {
+.btn-danger:hover {
   color: var(--text-on-primary);
   background-color: var(--color-error);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form input {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-input-bg);
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  transition: all 0.25s;
+}
+
+.form input:focus {
+  border-color: var(--color-primary);
+  outline: none;
 }

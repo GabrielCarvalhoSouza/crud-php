@@ -63,13 +63,13 @@ if ($result){
     </header>
     <main>
         <div class="card">
-            <form action="" method="POST" autocomplete="off">
+            <form class="form" action="" method="POST" autocomplete="off">
                 <label for="pizza_flavor">Sabor</label>
                 <input type="text" id="pizza_flavor" name="pizza_flavor" required>
                 <label for="pizza_price">Preço</label>
                 <input type="number" id="pizza_price" name="pizza_price" step="0.01" required>
-                <button type="submit">Cadastrar</button>
-                <button type="reset">Limpar</button>
+                <button class="btn btn-primary" type="submit">Cadastrar</button>
+                <button class="btn btn-secondary" type="reset">Limpar</button>
             </form>
         </div>
     </main>

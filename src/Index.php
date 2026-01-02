@@ -60,10 +60,10 @@ try {
                                     <td> <?php echo htmlspecialchars($pizza['flavor'], ENT_QUOTES, 'UTF-8'); ?> </td>
                                     <td> R$ <?php echo htmlspecialchars($pizza['price'], ENT_QUOTES, 'UTF-8'); ?> </td>
                                     <td>
-                                        <a class="btn btn-update" href="update.php?id=<?php echo $pizza['id']; ?>">Atualizar</a>
+                                        <a class="btn btn-primary" href="update.php?id=<?php echo $pizza['id']; ?>">Atualizar</a>
                                         <form action="delete.php" method="post">
                                             <input type="hidden" name="id" value="<?php echo $pizza['id']; ?>">
-                                            <button class="btn btn-delete" type="submit">Excluir</button>
+                                            <button class="btn btn-danger" type="submit">Excluir</button>
                                         </form>
                                     </td>
                                 </tr>
