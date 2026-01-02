@@ -84,18 +84,27 @@ try {
         document.addEventListener("DOMContentLoaded", () => {
             const flashMessageBox = document.getElementById("flash-message");
             const closeFlashMessageBoxButton = document.getElementById("btn-close-flash-message");
+
             if (!flashMessageBox || !closeFlashMessageBoxButton) {
                 return;
             }
 
-            const removeFlashMessage = () => {
+            const removeImmediately = () => {
                 flashMessageBox.remove();
             }
-    
-            let timeout = setTimeout(removeFlashMessage, 4000);
+
+            const animateAndRemove = () => {
+                flashMessageBox.classList.add('hiding');
+                flashMessageBox.addEventListener('animationend', () => {
+                    flashMessageBox.remove();
+                });
+            }
+
+            let timeout = setTimeout(animateAndRemove, 4000);
+
             closeFlashMessageBoxButton.onclick = () => {
                 clearTimeout(timeout);
-                removeFlashMessage();
+                removeImmediately();
             }
         });
     </script>
