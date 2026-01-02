@@ -43,6 +43,12 @@ try {
                     <button id="btn--closeflash-message">X</button>
                 </div>
                 <?php endif; ?>
+                <?php if (empty($result)): ?>
+                    <p>Nenhuma pizza cadastrada ainda.</p>
+                <?php
+                    endif;
+                    if (!empty($result)):
+                ?>
                 <div class="table-container">
                     <table>
                         <thead>
@@ -68,14 +74,10 @@ try {
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
-                            <?php if (empty($result)): ?>
-                                <tr>
-                                    <td colspan="4" style="text-align: center;">Nenhuma pizza cadastrada ainda.</td>
-                                </tr>
-                            <?php endif; ?>
                         </tbody>
                     </table>
                 </div>
+                <?php endif; ?>
             </div>
         </main>
     <script>

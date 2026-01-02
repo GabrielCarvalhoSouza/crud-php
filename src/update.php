@@ -109,12 +109,15 @@ $pizza = $result;
         <div class="card">
             <form class="form" action="" method="POST" autocomplete="off">
                 <input type="hidden" name="id" value="<?php echo $pizza['id']; ?>">
-                <label for="pizza_flavor">Sabor</label>
-                <input type="text" id="pizza_flavor" name="pizza_flavor" value="<?php echo htmlspecialchars($pizza['flavor'], ENT_QUOTES, 'UTF-8'); ?>" required>
-                <label for="pizza_price">Preço</label>
-                <input type="number" id="pizza_price" name="pizza_price" step="0.01" value="<?php echo htmlspecialchars($pizza['price'], ENT_QUOTES, 'UTF-8'); ?>" required>
+                <div class="input-group">
+                    <label for="pizza_flavor">Sabor</label>
+                    <input type="text" id="pizza_flavor" name="pizza_flavor" value="<?php echo htmlspecialchars($pizza['flavor'], ENT_QUOTES, 'UTF-8'); ?>" required>
+                </div>
+                <div class="input-group">
+                    <label for="pizza_price">Preço</label>
+                    <input type="number" id="pizza_price" name="pizza_price" step="0.01" value="<?php echo htmlspecialchars($pizza['price'], ENT_QUOTES, 'UTF-8'); ?>" required>
+                </div>
                 <button class="btn btn-primary" type="submit">Salvar</button>
-                <button class="btn btn-secondary" type="reset">Desfazer</button>
             </form>
         </div>
     </main>
