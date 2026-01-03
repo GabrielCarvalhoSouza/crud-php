@@ -68,7 +68,7 @@ try {
                                     <td class="col-flavor"> <?php echo htmlspecialchars($pizza['flavor'], ENT_QUOTES, 'UTF-8'); ?> </td>
                                     <td class="col-price"> R$ <?php echo htmlspecialchars($pizza['price'], ENT_QUOTES, 'UTF-8'); ?> </td>
                                     <td class="col-actions">
-                                        <a class="btn btn-primary" href="update.php?id=<?php echo $pizza['id']; ?>">Atualizar</a>
+                                        <a class="btn btn-primary" href="update.php?id=<?php echo $pizza['id']; ?>">Alterar</a>
                                         <form action="delete.php" method="post">
                                             <input type="hidden" name="id" value="<?php echo $pizza['id']; ?>">
                                             <button class="btn btn-danger" type="submit">Excluir</button>
