@@ -24,10 +24,12 @@ try {
 </head>
 <body>
         <header>
-            <h1>Cardápio da Pizzaria</h1>
-            <nav>
-                <a href="create.php">Cadastre uma pizza</a>
-            </nav>
+            <div class="wrapper">
+                <h1>Cardápio da Pizzaria</h1>
+                <nav>
+                    <a href="create.php">Cadastre uma pizza</a>
+                </nav>
+            </div>
         </header>
         <main>
             <div class="card">
@@ -53,19 +55,19 @@ try {
                     <table>
                         <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>Sabor</th>
-                                <th>Preço</th>
-                                <th>Ações</th>
+                                <th class="col-id">ID</th>
+                                <th class="col-flavor">Sabor</th>
+                                <th class="col-price">Preço</th>
+                                <th class="col-actions">Ações</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php foreach ($result as $pizza): ?>
                                 <tr>
-                                    <td> <?php echo $pizza['id']; ?> </td>
-                                    <td> <?php echo htmlspecialchars($pizza['flavor'], ENT_QUOTES, 'UTF-8'); ?> </td>
-                                    <td> R$ <?php echo htmlspecialchars($pizza['price'], ENT_QUOTES, 'UTF-8'); ?> </td>
-                                    <td>
+                                    <td class="col-id"> <?php echo $pizza['id']; ?> </td>
+                                    <td class="col-flavor"> <?php echo htmlspecialchars($pizza['flavor'], ENT_QUOTES, 'UTF-8'); ?> </td>
+                                    <td class="col-price"> R$ <?php echo htmlspecialchars($pizza['price'], ENT_QUOTES, 'UTF-8'); ?> </td>
+                                    <td class="col-actions">
                                         <a class="btn btn-primary" href="update.php?id=<?php echo $pizza['id']; ?>">Atualizar</a>
                                         <form action="delete.php" method="post">
                                             <input type="hidden" name="id" value="<?php echo $pizza['id']; ?>">
@@ -80,6 +82,9 @@ try {
                 <?php endif; ?>
             </div>
         </main>
+        <footer>
+            <p>Desenvolvido por Gabriel Carvalho</p>
+        </footer>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const flashMessageBox = document.getElementById("flash-message");

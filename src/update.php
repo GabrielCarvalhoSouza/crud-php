@@ -100,10 +100,12 @@ $pizza = $result;
 </head>
 <body>
     <header>
-        <h1>Atualizando a Pizza</h1>
-        <nav>
-            <a href="index.php">Mostrar cardápio</a>
-        </nav>
+        <div class="wrapper">
+            <h1>Atualizando a Pizza</h1>
+            <nav>
+                <a href="index.php">Mostrar cardápio</a>
+            </nav>
+        </div>
     </header>
     <main>
         <div class="card">
@@ -121,5 +123,8 @@ $pizza = $result;
             </form>
         </div>
     </main>
+    <footer>
+        <p>Desenvolvido por Gabriel Carvalho</p>
+    </footer>
 </body>
 </html>

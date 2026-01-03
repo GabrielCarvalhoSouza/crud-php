@@ -56,10 +56,12 @@ if ($result){
 </head>
 <body>
     <header>
-        <h1>Cadastro de Pizza</h1>
-        <nav>
-            <a href="index.php">Mostrar cardápio</a>
-        </nav>
+        <div class="wrapper">
+            <h1>Cadastro de Pizza</h1>
+            <nav>
+                <a href="index.php">Mostrar cardápio</a>
+            </nav>
+        </div>
     </header>
     <main>
         <div class="card">
@@ -76,5 +78,8 @@ if ($result){
             </form>
         </div>
     </main>
+    <footer>
+        <p>Desenvolvido por Gabriel Carvalho</p>
+    </footer>
 </body>
 </html>
