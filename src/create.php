@@ -64,7 +64,7 @@ if ($result){
         </div>
     </header>
     <main>
-        <div class="card">
+        <div class="card card-form">
             <form class="form" action="" method="POST" autocomplete="off">
                 <div class="input-group">
                     <label for="pizza_flavor">Sabor</label>

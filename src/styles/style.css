@@ -23,6 +23,11 @@
   --color-input-bg: #09090b;
 }
 
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3x;
+}
+
 body {
   font-family: "Inter", Helvetica, sans-serif;
   font-size: 1em;
@@ -419,9 +424,25 @@ input[type="number"] {
     width: 20%;
     text-align: center;
   }
-}
 
-:focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 3x;
+  .card-form {
+    max-width: 600px;
+    margin-inline: auto;
+  }
+
+  .form {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 35px;
+  }
+
+  .input-group {
+    width: 100%;
+  }
+
+  .form .btn {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: 50%;
+  }
 }

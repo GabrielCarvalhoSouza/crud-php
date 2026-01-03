@@ -108,7 +108,7 @@ $pizza = $result;
         </div>
     </header>
     <main>
-        <div class="card">
+        <div class="card card-form">
             <form class="form" action="" method="POST" autocomplete="off">
                 <input type="hidden" name="id" value="<?php echo $pizza['id']; ?>">
                 <div class="input-group">
