@@ -1,6 +1,6 @@
 # CRUD PHP
 
-Um projeto simples para treinar as tecnologias de HTML, CSS e PHP
+Um projeto para treinar as tecnologias de HTML, CSS e PHP
 
 ---
 
