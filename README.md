@@ -7,6 +7,7 @@ Um projeto simples para treinar as tecnologias de HTML, CSS e PHP
 ## Demonstração
 
 Demonstração do funcionamento do site e da responsividade:
+
 https://github.com/user-attachments/assets/3be91a65-5fe2-4275-88c6-6791e3e78253
 
 ---
