@@ -4,7 +4,7 @@ Um projeto simples para treinar as tecnologias de HTML, CSS e PHP
 
 ## Como usar?
 
-Requisito: É preciso ter docker instalado
+Requisito: É preciso ter `docker` instalado
 
 - Clone o repositório
 - Rode `docker compose up -d`
